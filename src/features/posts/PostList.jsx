@@ -1,24 +1,35 @@
-import { useState } from 'react';
 import styles from './styles/PostList.module.css';
 import NewPost from './NewPost';
 import Post from './Post';
 import Modal from '../../components/Modal';
+import { useState } from 'react';
+import EmptyPost from './EmptyPost';
 
 export default function PostList({ isPosting, onStopPosting }) {
-	const [body, setBody] = useState('');
-	const [author, setAuthor] = useState('');
+	const [posts, setPost] = useState([]);
+
+	const addPostHandler = (newPost) => {
+		if (!newPost) return;
+		setPost((exsitingPosts) => [newPost, ...exsitingPosts]);
+	};
 
 	return (
 		<>
 			{isPosting && (
 				<Modal onClose={onStopPosting}>
-					<NewPost body={body} author={author} onBody={(e) => setBody(e.target.value)} onAuthor={(e) => setAuthor(e.target.value)} />
+					<NewPost onCancel={onStopPosting} onAddPost={addPostHandler} />
 				</Modal>
 			)}
 
-			<ul className={styles.posts}>
-				<Post author={author} body={body} />
-			</ul>
+			{posts.length > 0 ? (
+				<ul className={styles.posts}>
+					{posts.map((post) => (
+						<Post key={post.author} author={post.author} body={post.body} />
+					))}
+				</ul>
+			) : (
+				<EmptyPost />
+			)}
 		</>
 	);
 }
