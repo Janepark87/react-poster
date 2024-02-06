@@ -1,0 +1,21 @@
+.loader {
+	width: 5rem;
+	margin: 3rem auto;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	background: radial-gradient(farthest-side, #9c7eee 94%, #0000) top/10px 10px no-repeat, conic-gradient(#0000 30%, #9c7eee);
+	-webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 10px), #000 0);
+	animation: spinning 1.5s infinite linear;
+}
+
+.loader-mini {
+	width: 2.4rem;
+	color: #9c7eee;
+	animation: spinning 1.5s infinite linear;
+}
+
+@keyframes spinning {
+	to {
+		transform: rotate(1turn);
+	}
+}
