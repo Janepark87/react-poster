@@ -9,8 +9,10 @@ export default function NewPost({ onAddPost, onCancel }) {
 		e.preventDefault();
 
 		const postData = {
+			id: self.crypto.randomUUID(),
 			author: author.trim(),
 			body,
+			created_at: new Date().toISOString(),
 		};
 
 		if (!postData.author && !postData.body) return;

@@ -1,0 +1,34 @@
+{
+  "posts": [
+    {
+      "id": "d8da9788-316c-45bf-881f-9b56eb4ff74c",
+      "author": "Jane P.",
+      "body": "This is my first post!",
+      "created_at": "2024-02-05T23:43:46.032Z"
+    },
+    {
+      "id": "678eb8c6-73ed-457d-8052-521815a54265",
+      "author": "Ran",
+      "body": "Second.",
+      "created_at": "2024-02-05T23:43:56.374Z"
+    },
+    {
+      "id": "20243229-5552-432f-b3f9-14015116d571",
+      "author": "last",
+      "body": "third",
+      "created_at": "2024-02-05T23:47:55.575Z"
+    },
+    {
+      "id": "2da0e4f1-70f6-424a-bff5-611372fbb281",
+      "author": "Hello",
+      "body": "Hello world!?",
+      "created_at": "2024-02-05T23:52:37.049Z"
+    },
+    {
+      "id": "2856d399-5f4e-4c38-9048-a1da572f47a1",
+      "author": "dd",
+      "body": "dddd",
+      "created_at": "2024-02-05T23:53:47.424Z"
+    }
+  ]
+}

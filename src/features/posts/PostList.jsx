@@ -2,15 +2,25 @@ import styles from './styles/PostList.module.css';
 import NewPost from './NewPost';
 import Post from './Post';
 import Modal from '../../components/Modal';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import EmptyPost from './EmptyPost';
+import { getPosts, createPost } from '../../services/apiPosts';
 
 export default function PostList({ isPosting, onStopPosting }) {
-	const [posts, setPost] = useState([]);
+	const [posts, setPosts] = useState([]);
 
-	const addPostHandler = (newPost) => {
-		if (!newPost) return;
-		setPost((exsitingPosts) => [newPost, ...exsitingPosts]);
+	useEffect(() => {
+		const fetchPosts = async () => {
+			const data = await getPosts();
+			setPosts(data);
+		};
+
+		fetchPosts();
+	}, []);
+
+	const addPostHandler = async (newPost) => {
+		await createPost(newPost);
+		setPosts((exsitingPosts) => [newPost, ...exsitingPosts]);
 	};
 
 	return (
