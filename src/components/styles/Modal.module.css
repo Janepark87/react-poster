@@ -16,11 +16,29 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: calc(100% - 3rem);
-	max-width: 20rem;
-	background-color: #6233b9;
+	max-height: 90%;
 	border-radius: 6px;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 	border: none;
-	overflow: hidden;
+	overflow-y: auto;
 	z-index: 1;
+	-webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+.modal.sm {
+	max-width: 22rem;
+}
+
+.modal.md {
+	max-width: 35rem;
+}
+
+.modal.lg {
+	max-width: 45rem;
+}
+
+.modal > * {
+	width: 100%;
+	padding: 2rem 1.5rem;
+	border-radius: inherit;
 }

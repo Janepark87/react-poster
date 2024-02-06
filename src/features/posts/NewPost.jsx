@@ -1,43 +1,38 @@
-import { useState } from 'react';
+import { Link, Form, redirect } from 'react-router-dom';
 import styles from './styles/NewPost.module.css';
+import { createPost } from '../../services/apiPosts';
 
-export default function NewPost({ onAddPost, onCancel }) {
-	const [body, setBody] = useState('');
-	const [author, setAuthor] = useState('');
-
-	const submitHandler = (e) => {
-		e.preventDefault();
-
-		const postData = {
-			id: self.crypto.randomUUID(),
-			author: author.trim(),
-			body,
-			created_at: new Date().toISOString(),
-		};
-
-		if (!postData.author && !postData.body) return;
-
-		onAddPost(postData);
-		onCancel();
-	};
-
+export default function NewPost() {
 	return (
-		<form onSubmit={submitHandler} className={styles.form}>
+		<Form method="post" className={styles.form}>
 			<div>
 				<label htmlFor="body">Text</label>
-				<textarea id="body" rows={3} required onChange={(e) => setBody(e.target.value)} />
+				<textarea id="body" rows={3} name="body" required />
 			</div>
 			<div>
 				<label htmlFor="name">Your name</label>
-				<input type="text" id="name" required onChange={(e) => setAuthor(e.target.value)} />
+				<input type="text" id="name" name="author" required />
 			</div>
 
 			<div className={styles.actions}>
-				<button type="button" onClick={onCancel}>
+				<Link type="button" to="..">
 					Cancel
-				</button>
+				</Link>
 				<button>Submit</button>
 			</div>
-		</form>
+		</Form>
 	);
+}
+
+export async function action({ request }) {
+	const formData = await request.formData();
+	const data = Object.fromEntries(formData);
+
+	const postData = {
+		...data,
+		created_at: new Date().toISOString(),
+	};
+
+	await createPost(postData);
+	return redirect('/');
 }

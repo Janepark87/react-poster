@@ -1,9 +1,7 @@
 .posts {
-	display: grid;
-	grid-template-columns: repeat(3, 30%);
-	justify-content: center;
+	display: flex;
+	flex-wrap: wrap;
 	gap: 1rem;
-	max-width: 50rem;
 	margin: 1rem 10%;
 	padding: 1rem 0;
 	list-style: none;
