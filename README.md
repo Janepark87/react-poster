@@ -1,8 +1,14 @@
-# React + Vite
+# React Poster Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+Welcome to the Simple React Poster Application, a straightforward tool designed for creating and exploring posters. This application, built with React, provides a minimalist approach to poster creation and viewing, offering a clean and simple user experience.
 
-Currently, two official plugins are available:
+## Features
+- **Create New Poster:** Easily design and create posters using a simple and intuitive interface.
+- **Poster Detail Information:** View basic details of each poster with a clear and uncluttered presentation.
+- **Lightweight Design:** The application focuses on simplicity, ensuring a lightweight and efficient user experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
+- Vite React
+- react-router-dom
+- json-server
